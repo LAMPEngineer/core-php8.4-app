@@ -2,52 +2,8 @@
 
 namespace Controllers\Notes;
 
-use Core\Database;
-use Core\Validator;
 
-
-require base_path('Core/Validator.php');
-
-// Load configs from config.ini
-$config_ini = parse_ini_file(base_path('/configs/config.ini'), true);
-
-$config = require base_path('/configs/config.php');    
-
-$db = new Database(
-        config: $config['dadabase'],
-        username: $config_ini['database']['username'], 
-        password: $config_ini['database']['password']
-    );
-
-
-$errors = [];
-
-$currentUserId = 4; //replace with logged-in user ID
-
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-
-    if(! Validator::string(value: $_POST['body'], min: 1, max: 1000))
-        $errors['body'] = 'A body of no more than 1000 character is required.';
-    
-
-    
-    if(empty($errors)){
-        
-        $db->query('INSERT INTO notes (user_id, body) VALUES (:user_id, :body)',
-            [   
-                'user_id' => $currentUserId,
-                'body'    => trim($_POST['body'])
-            ]
-        );
-    }
-    
-
-}
-
-
-
-    view('notes/create.view.php', [
+view('notes/create.view.php', [
         'heading' => 'Create Note',
-        'errors' => $errors
+        'errors' => []
     ]);

@@ -16,14 +16,20 @@ $db = new Database(
     );
 
 
-
-
 $currentUserId = 4; //replace with logged-in user ID
+$id = $_POST['id'];
 
-$notes = $db->query('SELECT * FROM notes WHERE user_id=' . $currentUserId)->get();
 
+$note = $db->query("SELECT * FROM notes WHERE id = :id", [
+    'id' => $id
+    ])->findOrFail();
 
-    view('notes/index.view.php', [
-        'heading' => 'My Notes',
-        'notes' => $notes
-    ]);
+// Check if the note belongs to the current user
+authorize($note->user_id === $currentUserId);
+
+$db->query("DELETE FROM notes WHERE id = :id", [
+    'id' => $id
+]);
+
+header('Location: /notes'); 
+exit();
