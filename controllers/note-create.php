@@ -1,5 +1,6 @@
 <?php
 
+require 'Validator.php';
 // Load configs from config.ini
 $config_ini = parse_ini_file("./configs/config.ini", true);
 
@@ -21,15 +22,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $errors = [];
 
-    if(empty($_POST['body']))
-        $errors['body'] = 'The body of the note is required.';
+
+    if(! Validator::string(value: $_POST['body'], min: 1, max: 1000))
+        $errors['body'] = 'A body of no more than 1000 character is required.';
     
 
-    if(strlen($_POST['body']) > 1000)
-        $errors['body'] = 'The body can not be more than 1000 character.';
-
     
-
     if(empty($errors)){
         
         $db->query('INSERT INTO notes (user_id, body) VALUES (:user_id, :body)',
