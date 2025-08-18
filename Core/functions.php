@@ -6,6 +6,8 @@
  * @package Core-PHP8.4-App
  * @version 1.00
  */
+    
+    use Core\Response;
 
     // Die and dump function for debugging   
     function dd($value)
@@ -30,7 +32,7 @@
         
         http_response_code($code);
 
-        require 'views/'. $code . '.view.php';
+        require base_path('views/'. $code . '.view.php');
         
         die();
     }

@@ -8,13 +8,16 @@
  * @version 1.00
  */
 
+
+use Core\Response;
+
     $routes = require base_path('routes.php');
 
 
     // Check if the requested URI exists in the routes
     function routeToController($uri, $routes): void {
 
-        (array_key_exists($uri, $routes)) ? require $routes[$uri] : abort(Response::NOT_FOUND); 
+        (array_key_exists($uri, $routes)) ? require base_path($routes[$uri]) : abort(Response::NOT_FOUND); 
       }
 
 

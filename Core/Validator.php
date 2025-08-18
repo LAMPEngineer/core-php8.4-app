@@ -7,6 +7,10 @@
  * @version 1.0
  * 
  */
+    namespace Core;
+
+
+
 class Validator
 {
 

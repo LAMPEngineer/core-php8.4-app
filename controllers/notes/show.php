@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 // Load configs from config.ini
 $config_ini = parse_ini_file(base_path('/configs/config.ini'), true);
 

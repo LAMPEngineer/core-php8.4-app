@@ -1,5 +1,11 @@
 <?php
 
+namespace Controllers\Notes;
+
+use Core\Database;
+use Core\Validator;
+
+
 require base_path('Core/Validator.php');
 
 // Load configs from config.ini

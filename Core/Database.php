@@ -7,6 +7,11 @@
  * @version 1.00
  */
 
+    namespace Core;
+
+    use PDO;
+
+
    class Database {
 
     

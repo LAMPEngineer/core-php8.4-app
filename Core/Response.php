@@ -7,6 +7,8 @@
  * @version 1.00
  */
 
+namespace Core;
+
 class Response
 {
     const FORBIDDEN = 403;
