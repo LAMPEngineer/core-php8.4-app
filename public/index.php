@@ -12,12 +12,17 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    const BASE_PATH = __DIR__ . '/../';
+
+
     // Include the functions file for utility functions
-    require 'functions.php';
+    require BASE_PATH . 'functions.php';
 
-    require 'Database.php';
+    spl_autoload_register(function ($class){
+        
+        require base_path('Core/' . $class . '.php');
 
-    require 'Response.php';
-    
-    require 'router.php';
+    });
+
+    require base_path('router.php');
 

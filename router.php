@@ -8,7 +8,7 @@
  * @version 1.00
  */
 
-    $routes = require 'routes.php';
+    $routes = require base_path('routes.php');
 
 
     // Check if the requested URI exists in the routes

@@ -1,9 +1,9 @@
 <?php
 
 // Load configs from config.ini
-$config_ini = parse_ini_file("./configs/config.ini", true);
+$config_ini = parse_ini_file(base_path('/configs/config.ini'), true);
 
-$config = require './configs/config.php';    
+$config = require base_path('/configs/config.php');    
 
 $db = new Database(
         config: $config['dadabase'],
@@ -13,11 +13,13 @@ $db = new Database(
 
 
 
-$heading = 'My Notes';
 
 $currentUserId = 4; //replace with logged-in user ID
 
 $notes = $db->query('SELECT * FROM notes WHERE user_id=' . $currentUserId)->get();
 
 
-require 'views/notes.view.php';
+    view('notes/index.view.php', [
+        'heading' => 'My Notes',
+        'notes' => $notes
+    ]);

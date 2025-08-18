@@ -1,10 +1,11 @@
 <?php
 
-require 'Validator.php';
-// Load configs from config.ini
-$config_ini = parse_ini_file("./configs/config.ini", true);
+require base_path('Core/Validator.php');
 
-$config = require './configs/config.php';    
+// Load configs from config.ini
+$config_ini = parse_ini_file(base_path('/configs/config.ini'), true);
+
+$config = require base_path('/configs/config.php');    
 
 $db = new Database(
         config: $config['dadabase'],
@@ -13,14 +14,11 @@ $db = new Database(
     );
 
 
-$heading = 'Create Note';
+$errors = [];
 
 $currentUserId = 4; //replace with logged-in user ID
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-
-    $errors = [];
 
 
     if(! Validator::string(value: $_POST['body'], min: 1, max: 1000))
@@ -33,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $db->query('INSERT INTO notes (user_id, body) VALUES (:user_id, :body)',
             [   
                 'user_id' => $currentUserId,
-                'body'    => $_POST['body']
+                'body'    => trim($_POST['body'])
             ]
         );
     }
@@ -43,4 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 
 
-require 'views/note-create.view.php';
+    view('notes/create.view.php', [
+        'heading' => 'Create Note',
+        'errors' => $errors
+    ]);
