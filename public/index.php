@@ -26,6 +26,8 @@
 
     });
 
+require base_path('bootstrap.php');
+
 $router = new \Core\Router();
 
 $routes = require base_path('routes.php');

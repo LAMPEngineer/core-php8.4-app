@@ -2,19 +2,11 @@
 
 namespace Controllers\Notes;
 
+use Core\App;
 use Core\Database;
 
-// Load configs from config.ini
-$config_ini = parse_ini_file(base_path('/config.ini'), true);
 
-$config = require base_path('/config.php');    
-
-$db = new Database(
-        config: $config['dadabase'],
-        username: $config_ini['database']['username'], 
-        password: $config_ini['database']['password']
-    );
-
+$db = App::resolve(Database::class);
 
 $currentUserId = 4; //replace with logged-in user ID
 $id = $_GET['id'];
