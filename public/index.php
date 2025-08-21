@@ -13,6 +13,7 @@
     error_reporting(E_ALL);
 
     session_start();
+    
     const BASE_PATH = __DIR__ . '/../';
 
 
