@@ -36,7 +36,9 @@
             </button>
 
         <?php else: ?>
-            <a href="/register" class="text-white">Register</a>
+            <a href="/register"   class="<?= urlIs('/register')   ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-white/5 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Register</a>
+            <a href="/login"   class="<?= urlIs('/login')   ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-white/5 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</a>
+
         <?php endif; ?>
 
             <el-menu anchor="bottom end" popover class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline-1 outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
@@ -84,7 +86,9 @@
         </div>
 
         <?php else: ?>
-            <a href="/register" class="text-white">Register</a>
+            <a href="/register"   class="<?= urlIs('/register')   ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-white/5 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Register</a>
+            <a href="/login"   class="<?= urlIs('/login')   ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-white/5 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</a>
+        
         <?php endif; ?>
 
         <button type="button" class="relative ml-auto shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
