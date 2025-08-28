@@ -44,10 +44,11 @@ if ($user) {
     ]);
 
     // marked as user has logged in.
-    $_SESSION['user'] = [
+    login([
         'email' => $email
-    ];
+    ]);
 
+    
     header('Location:/notes');
     exit();
 }
