@@ -33,6 +33,6 @@ class User
 }
 
 // Usage
-$user = new User('John', 'john@example.com');
+$user = new User(name: 'John', email: 'john@example.com'); //Named arguments
 
 $user->saveToDatabase();

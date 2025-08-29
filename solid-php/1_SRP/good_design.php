@@ -44,9 +44,8 @@ class UserRepository
 
 
 // Usage
-$user = new User('John', 'john@example.com');
+$user = new User(name: 'John', email: 'john@example.com'); //Named arguments
 
 $userRepository = new UserRepository();
 
-$userRepository->save($user);
-
+$userRepository->save($user); // dependency injection
