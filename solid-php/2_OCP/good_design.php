@@ -44,9 +44,9 @@ $csvformatter = new CsvFromatter();
 
 $reportgenerator = new ReportGenerator();
 
-$reportgenerator->generateReport($pdformatter);
+$reportgenerator->generateReport(formatter: $pdformatter); // inject the dependency, the pdf formetter
 
-$reportgenerator->generateReport($csvformatter);
+$reportgenerator->generateReport(formatter: $csvformatter); // inject the dependency, the csv formetter
 
 
 // 5. To add a new format, we just extend the functionality without modifying existing code
@@ -61,4 +61,5 @@ class XmlFormatter implements ReportFormatter
 
 
 $xmlformatter = new XmlFormatter();
-$reportgenerator->generateReport($xmlformatter);
+$reportgenerator->generateReport(formatter: $xmlformatter); // inject the dependency, the xml formetter
+
