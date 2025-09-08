@@ -1,9 +1,17 @@
 # 5. Dependency Inversion Principle (DIP)
-This principle states that
+This principle states that:
+
+1. High-level modules (business logis) should not depend on low-level modules (details like database, APIs, ect.). Both should depend on abstractions (Interfaces).
+
+2. Abstractions should not depend on details. Details should depend on abstractions.
 
 
 ## In an easy way to understand
+Imagine a simple system with a light switch and a light bulb.
 
+A light switch is hardwired to a specific brand of light bulb. If the bulb burns out or you want to switch to a different type of lighting (e.g., an LED), you have to rip out and replace the entire switch and its wiring. The high-level module (the switch) is tightly dependent on the low-level module (the specific bulb). The Bad Way (Violation of DIP).
+
+A light switch is connected to a generic "light interface". The light bulb also implements this interface. You can now use any kind of light bulb—from an incandescent bulb to an LED—as long as it fits the same "light interface" contract. The switch and the bulb are decoupled, and both depend on the abstract idea of a "light", not on each other. The Good Way (Following DIP).
 
 
 ## Code Demo

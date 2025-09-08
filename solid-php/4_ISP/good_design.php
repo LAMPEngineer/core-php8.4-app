@@ -1,7 +1,7 @@
 
 <?php
-/* 
- * To solve ISP issues in bad design, we segregate the large interface 
+/*
+ * To solve ISP issues in bad design, we segregate the large interface
  * into smaller, more specific ones.
  */
 interface Workable
@@ -19,10 +19,10 @@ interface Codeable
     public function writeCode();
 }
 
-/* 
+/*
  * Now, Developer class only implement the interfaces they need:
  * Workable and Codeable
- * 
+ *
  */
 class Developer implements Workable, Codeable
 {
@@ -37,10 +37,10 @@ class Developer implements Workable, Codeable
     }
 }
 
-/* 
+/*
  * And, Manager class only implement the interfaces they need:
  * Workable and Manageable
- * 
+ *
  */
 class Manager implements Workable, Manageable
 {

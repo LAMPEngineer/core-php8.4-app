@@ -1,5 +1,5 @@
 # 4. Interface Segregation Principle (ISP)
-This principle states that a client shouldn't be forced to depend on interfsces they don't use. Simply put, it's better to have many specific interfaces rather than one large, a general-purpose interface.
+This principle states that a client shouldn't be forced to depend on interfaces they don't use. Simply put, it's better to have many specific interfaces rather than one large, a general-purpose interface.
 
 
 ## In an easy way to understand

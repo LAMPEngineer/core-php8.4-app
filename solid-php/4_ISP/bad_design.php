@@ -1,6 +1,6 @@
 <?php
-/* 
- * A large interfsce called `Worker` with methods for all kind of tasks: 
+/*
+ * A large interfsce called `Worker` with methods for all kind of tasks:
  * `work`, `manageProject`, `writeCode`
  */
 interface Worker
@@ -10,11 +10,11 @@ interface Worker
     public function writeCode();
 }
 
-/* 
- * A `Developer` needs to `work` and `writeCode` but 
+/*
+ * A `Developer` needs to `work` and `writeCode` but
  * does not manage projects. But still we are forcing
  * developer to implement manageProjects() method.
- * 
+ *
  */
 class Developer implements Worker
 {
@@ -26,21 +26,21 @@ class Developer implements Worker
     // Problem: Developer doesn't manage projects
     public function manageProjects() : Exception
     {
-        throw new Exception("Developer does't manage projects...");
+        throw new MyCustomException("Developer does't manage projects...");
     }
 
     public function writeCode() : void
     {
         echo "Developer is writing code..." . PHP_EOL;
-    }  
+    }
 
 }
 
-/* 
- * A `Manager` needs to `work` and `manageProjects` but 
- * does not write code. But still we are forcing manager 
+/*
+ * A `Manager` needs to `work` and `manageProjects` but
+ * does not write code. But still we are forcing manager
  * to implement writeCode() method.
- * 
+ *
  */
 class Manager implements Worker
 {
@@ -57,10 +57,20 @@ class Manager implements Worker
     // Problem: Manager doesn't write code
     public function writeCode() : Exception
     {
-        throw new Exception("Manager doesn't write code.");
-    }  
+        throw new MyCustomException("Manager doesn't write code.");
+    }
 
 }
+
+class MyCustomException extends Exception
+{
+    // You can add custom properties or methods here if needed
+    public function __construct($message = "", $code = 0)
+    {
+        parent::__construct($message, $code);
+    }
+}
+
 
 // Usages
 $developer = new Developer();
