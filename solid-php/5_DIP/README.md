@@ -17,6 +17,6 @@ A light switch is connected to a generic "light interface". The light bulb also 
 ## Code Demo
 In the code demo I have created two designs to understand this principle:
 
-1. Bad Design (bad_design.php): 
+1. Bad Design (bad_design.php): In this example, High-level module `NotificationService` is directly depends on concrete classes - `EmailSender` & `SMSSender`. If we want to add a new `PushSender`, we have to modify high level module.
 
-2. Good Design (good_desgn.php): 
+2. Good Design (good_desgn.php): To fix issues in the `Bad Design` example, I introduce an abstraction: a `MessageSender` interface. Now, `NotificationService` depends on the interface (abstraction), not the concrete classes. We easily add new senders - `PushSender` without touching `NotificationService`.
