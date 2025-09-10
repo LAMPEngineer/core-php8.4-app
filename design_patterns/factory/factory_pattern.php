@@ -5,17 +5,14 @@
 
 
 
-/*
- * An interface that all our notification types must implement.
- */
+//An interface that all our notification types must implement.
 interface Notifier
 {
     public function send(string $message) : string;
 }
 
-/*
- * Email notifier that implements Notifier interface.
- */
+
+//Email notifier that implements Notifier interface.
 class EmailNotifier implements Notifier
 {
     public function send(string $message): string
@@ -25,9 +22,7 @@ class EmailNotifier implements Notifier
 }
 
 
-/*
- * SMS notifier that implements Notifier interface.
- */
+//SMS notifier that implements Notifier interface.
 class SMSNotifier implements Notifier
 {
     public function send(string $message): string
@@ -37,9 +32,7 @@ class SMSNotifier implements Notifier
 }
 
 
-/*
- * Push notifier that implements Notifier interface.
- */
+//Push notifier that implements Notifier interface.
 class PushNotifier implements Notifier
 {
     public function send(string $message): string

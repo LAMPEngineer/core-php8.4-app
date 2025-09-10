@@ -10,30 +10,43 @@ The main problem the Factory pattern solves is tight coupling. Tight coupling oc
 Let's suppose there is an application that needs to create different types of vehicles like cars, bikes, and trucks. We would create like:
 
 `Bad approach` - tightly coupled code
+
 if ($type === 'car') {
+
     $vehicle = new Car();
+
 } elseif ($type === 'bike') {
+
     $vehicle = new Bike();
+
 } elseif ($type === 'truk') {
+
     $vehicle = new Truck();
 }
 
 Instead of the client code having multiple new Car(), new Bike(), and new Truck() calls, a factory can be used to create the appropriate vehicle object based on a request, for example, VehicleFactory::create('car').
 
 ## Key Benefits of Factory Pattern
-1. Loose Coupling
-    Our code depends on interfaces, not concrete classes
-    Easy to swap implementations without changing client code
-2. Single Responsibility
-    Object creation logic is centralized in one place
-    Each class has a single, well-defined purpose
-3. Open/Closed Principle
-    Easy to add new product types without modifying existing code
-    Just create new classes and update the factory
-4. Testability
-    Easy to mock objects for testing
-    Factory can be easily substituted in tests
+1. Loose Coupling:
+    - Our code depends on interfaces, not concrete classes.
+    - Easy to swap implementations without changing client code.
+
+2. Single Responsibility:
+    - Object creation logic is centralized in one place.
+    - Each class has a single, well-defined purpose.
+
+3. Open/Closed Principle:
+    - Easy to add new product types without modifying existing code.
+    - Just create new classes and update the factory.
+
+4. Testability:
+    - Easy to mock objects for testing.
+    - Factory can be easily substituted in tests
 
 ## Code Demo
 Let's imagine a scenario where we have an application that sends notifications through different channels (e.g., Email, SMS, Push Notification).
+
 We define an interface that all our notification classes must implement. Next, we create a centralized notification factory class that create objects of type interface as requested.
+
+If we later wanted to add a new notifier (e.g., `SlackNotifier`), we would only need to modify the `NotifierFactory` class and add the new concrete class - this way we follow the Open-Closed Principle ([OCP](https://github.com/LAMPEngineer/SOLID-PHP-8-4/tree/main/2_OCP)) of [SOLID design](https://github.com/LAMPEngineer/SOLID-PHP-8-4).
+
