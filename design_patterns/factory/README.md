@@ -31,11 +31,11 @@ Instead of the client code having multiple new Car(), new Bike(), and new Truck(
     - Our code depends on interfaces, not concrete classes.
     - Easy to swap implementations without changing client code.
 
-2. Single Responsibility:
+2. Single Responsibility Principle:
     - Object creation logic is centralized in one place.
     - Each class has a single, well-defined purpose.
 
-3. Open/Closed Principle:
+3. Open-Closed Principle:
     - Easy to add new product types without modifying existing code.
     - Just create new classes and update the factory.
 
@@ -43,7 +43,7 @@ Instead of the client code having multiple new Car(), new Bike(), and new Truck(
     - Easy to mock objects for testing.
     - Factory can be easily substituted in tests
 
-## Code Demo
+## Real World Code Demo
 Let's imagine a scenario where we have an application that sends notifications through different channels (e.g., Email, SMS, Push Notification).
 
 We define an interface that all our notification classes must implement. Next, we create a centralized notification factory class that create objects of type interface as requested.
