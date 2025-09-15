@@ -36,6 +36,6 @@ We'll have a PaymentProcessor (the `context`) that uses different strategies for
 
 Key components:
   1. **Strategy Interface** (`PaymentStrategy`): Defines the contract that all payment methods must follow
-  2. **Concrete Strategies**: Each payment method (`Credit Card`, `PayPal`, `Ceypto`) implements the interface differently
+  2. **Concrete Strategies**: Each payment method (`Credit Card`, `PayPal`, `Crypto`) implements the interface differently
   3. **Context Class** (`PaymentProcessor`): Uses strategies without knowing their specific implementation details
   4. **Runtime Flexibility**: We can switch payment methods dynamically based on conditions

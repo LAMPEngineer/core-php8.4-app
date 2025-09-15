@@ -1,6 +1,8 @@
 <?php
 /*
- * The Singleton design pattern
+ * The Singleton design pattern for database connection.
+ * It ensures DatabaseConnection class has only one instance.
+ *
  */
 
 class DatabaseConnection
@@ -70,3 +72,5 @@ Executing SQL query: SELECT * FROM products WHERE id=123 */
 //$newConnection = new DatabaseConnection(); //Fatal Error
 
 //$clonedConnection = clone $connection1; //Fatal Error
+
+//$unserializedConnection = unserialize(serialize($connection1)); //Fatal Error
