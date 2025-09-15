@@ -1,6 +1,9 @@
 <?php
 /*
- * The Sstrategy design pattern
+ * The strategy design pattern to implement process payments
+ * with multiple payment methods at run time and follow
+ * Open-Close Princile (OCP) of SOLID design principles.
+ *
  */
 
 
@@ -65,7 +68,7 @@ class PaymentProcessor
 
 }
 
-// Step 4: Usages
+// Usages
 $processor = new PaymentProcessor(new CreditCardStrategy());
 echo $processor->processPayment(549.30) . PHP_EOL;
 
@@ -82,7 +85,7 @@ Processed payment of $20.5 via PayPal.
 Processed payment of $900.18 via Cryptocurrency.*/
 
 
-// Demo: Dynamic strategy selection based on conditions
+// Step 4: Demo: Dynamic strategy selection based on conditions at run time
 function selectPaymentStrategy(float $amount) : PaymentStrategy
 {
     return match(true){
@@ -105,3 +108,4 @@ Processed payment of $1500.45 via Credit Card.
 Processed payment of $55 via Cryptocurrency.
 Processed payment of $450.25 via PayPal.
 Processed payment of $750.5 via Credit Card.*/
+
